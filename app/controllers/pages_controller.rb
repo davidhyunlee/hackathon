@@ -1,5 +1,10 @@
 class PagesController < ApplicationController
   def index
+
+  	url = "https://maps.googleapis.com/maps/api/js?key="
+  	key = ENV['GOOGLE_MAPS']
+  	@endpoint = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD-nlhAjczDjrWflhOm8edXLfliwPvbjnE"
+
     endpoint = "https://outdoor-data-api.herokuapp.com/api.json?api_key=4016165acc967a9800153c77a3528d83"
     if params[:location] && params[:location] != ''
       @geocode = Geocoder.coordinates(params[:location])
@@ -29,6 +34,7 @@ class PagesController < ApplicationController
         @coordinates << [place["lat"],place["lon"]]
       end
     end
+
 
   end
 end
