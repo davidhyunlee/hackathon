@@ -17,21 +17,26 @@
         </div>
 
 <%= form_tag root_path, method: 'get', class: 'form-inline' do %>
-
-  <%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
-  <%= select_tag "activity", "
-  <option value=''>Select an Activity</option>
-  <option>hiking</option>
-  <option>camping</option>
-  <option>mountain biking</option>
-  <option>caving</option>
-  <option>trail running</option>
-  <option>snow sports</option>
-  <option>horseback riding</option>
-  <option>atv</option>
-  <option>water sports</option>
-  ".html_safe, class: 'form-control' %>
-  <%= submit_tag "Search" %>
+  <div class="form-group">
+    <%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= select_tag "activity", "
+    <option value=''>Select an Activity</option>
+    <option>hiking</option>
+    <option>camping</option>
+    <option>mountain biking</option>
+    <option>caving</option>
+    <option>trail running</option>
+    <option>snow sports</option>
+    <option>horseback riding</option>
+    <option>atv</option>
+    <option>water sports</option>
+    ".html_safe, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= submit_tag "Search", class: "btn btn-default" %>
+  </div>
 <% end %>
 
 
@@ -39,6 +44,8 @@
 
 
 <% @response["places"].each do |places| %>
+
+  <%= "#{places["city"]}, #{places["state"]}" %>
 
     <% places["activities"].each do |activity| %>
         
@@ -50,6 +57,6 @@
 
 <% end %>
 
-        
+
     </body>
 </html>
