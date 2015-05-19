@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+    <body>
+        <h1>Happy trails</h1>
+        <div class="row">
+
+            <div class="col-md-6"> Temp api data</div>
+            <button type="button" class="btn btn-primary">Primary</button>
+
+            <div class="col-md-6"> other temp data</div>
+            <button type="button" class="btn btn-primary">Primary</button>
+
+        </div>
+
 <%= form_tag root_path, method: 'get', class: 'form-inline' do %>
 
   <%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
@@ -31,3 +49,7 @@
       <% end %>
 
 <% end %>
+
+        
+    </body>
+</html>
