@@ -1,2 +1,33 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<%= form_tag root_path, method: 'get', class: 'form-inline' do %>
+
+  <%= text_field_tag :location, nil, placeholder: 'Type an address, city, or zip code.', class: 'form-control' %>
+  <%= select_tag "activity", "
+  <option value=''>Select an Activity</option>
+  <option>hiking</option>
+  <option>camping</option>
+  <option>mountain biking</option>
+  <option>caving</option>
+  <option>trail running</option>
+  <option>snow sports</option>
+  <option>horseback riding</option>
+  <option>atv</option>
+  <option>water sports</option>
+  ".html_safe, class: 'form-control' %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+
+<%= @geocode %>
+
+
+<% @response["places"].each do |places| %>
+
+    <% places["activities"].each do |activity| %>
+        
+        <ul>
+          <li><%= activity["name"] %></li>
+        </ul>
+
+      <% end %>
+
+<% end %>
